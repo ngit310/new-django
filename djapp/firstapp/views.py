@@ -109,14 +109,14 @@ class view_equipment(View):
     def del_equipment(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Equipment.objects.get(id=id_data)
+            del_data = Equipment.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/equipment")
 
     def update_equipment(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Equipment.objects.get(id=id_data)
+            update_data = Equipment.objects.get(id_data)
             update_data.type_equipment = request.POST.get("type_equipment")
             update_data.number_equipment = request.POST.get("number_equipment")
             update_data.name_equipment = request.POST.get("name_equipment")
@@ -151,24 +151,24 @@ class view_plots(View):
             new_data = Plot()
             new_data.number_plots = request.POST.get("number_plots")
             new_data.name_plots = request.POST.get("name_plots")
-            new_data.equipment_on_plots = Equipment.objects.get(id=request.POST.get("equipment_on_plots"))
+            new_data.equipment_on_plots = Equipment.objects.get(request.POST.get("equipment_on_plots"))
             new_data.save()
             return HttpResponseRedirect("/main/plots")
 
     def del_plots(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Plot.objects.get(id=id_data)
+            del_data = Plot.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/plots")
 
     def update_plots(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Plot.objects.get(id=id_data)
+            update_data = Plot.objects.get(id_data)
             update_data.number_plots = request.POST.get("number_plots")
             update_data.name_plots = request.POST.get("name_plots")
-            update_data.equipment_on_plots = Equipment.objects.get(id=request.POST.get("equipment_on_plots"))
+            update_data.equipment_on_plots = Equipment.objects.get(request.POST.get("equipment_on_plots"))
             update_data.save()
             return HttpResponseRedirect("/main/plots")
 
@@ -200,7 +200,7 @@ class view_acc(View):
             new_data = Accounting_for_failure()
             new_data.date_of_accounting = request.POST.get("date_of_accounting")
             new_data.reason_of_accounting = request.POST.get("reason_of_accounting")
-            new_data.equipment_of_accounting = Equipment.objects.get(id=request.POST.get("equipment_of_accounting"))
+            new_data.equipment_of_accounting = Equipment.objects.get(request.POST.get("equipment_of_accounting"))
             new_data.full_name_accounting_employee = request.POST.get("full_name_accounting_employee")
             new_data.save()
             return HttpResponseRedirect("/main/accounting")
@@ -208,17 +208,17 @@ class view_acc(View):
     def del_acc(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Accounting_for_failure.objects.get(id=id_data)
+            del_data = Accounting_for_failure.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/accounting")
 
     def update_acc(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Accounting_for_failure.objects.get(id=id_data)
+            update_data = Accounting_for_failure.objects.get(id_data)
             update_data.date_of_accounting = request.POST.get("date_Accounting")
             update_data.reason_of_accounting = request.POST.get("reason_Accounting")
-            update_data.equipment_of_accounting = Equipment.objects.get(id=request.POST.get("equipment_id"))
+            update_data.equipment_of_accounting = Equipment.objects.get(request.POST.get("equipment_id"))
             update_data.full_name_accounting_employee = request.POST.get("person_Accounting")
             update_data.save()
             return HttpResponseRedirect("/main/accounting")
@@ -252,7 +252,7 @@ class view_review(View):
             new_data.date_of_reviewing = request.POST.get("date_of_reviewing")
             new_data.result_of_reviewing = request.POST.get("result_of_reviewing")
             new_data.reason_of_reviewing = request.POST.get("reason_of_reviewing")
-            new_data.equipment_of_reviewing = Equipment.objects.get(id=request.POST.get("equipment_of_reviewing"))
+            new_data.equipment_of_reviewing = Equipment.objects.get(request.POST.get("equipment_of_reviewing"))
             new_data.full_name_reviewing_employee = request.POST.get("full_name_reviewing_employee")
             new_data.save()
             return HttpResponseRedirect("/main/reviewing")
@@ -260,18 +260,18 @@ class view_review(View):
     def del_review(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Reviewing_for_inspection.objects.get(id=id_data)
+            del_data = Reviewing_for_inspection.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/reviewing")
 
     def update_review(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Reviewing_for_inspection.objects.get(id=id_data)
+            update_data = Reviewing_for_inspection.objects.get(id_data)
             update_data.date_of_reviewing = request.POST.get("date_of_reviewing")
             update_data.result_of_reviewing = request.POST.get("result_of_reviewing")
             update_data.reason_of_reviewing = request.POST.get("reason_of_reviewing")
-            update_data.equipment_of_reviewing = Equipment.objects.get(id=request.POST.get("equipment_of_reviewing"))
+            update_data.equipment_of_reviewing = Equipment.objects.get(request.POST.get("equipment_of_reviewing"))
             update_data.full_name_reviewing_employee = request.POST.get("full_name_reviewing_employee")
             update_data.save()
             return HttpResponseRedirect("/main/reviewing")
@@ -311,14 +311,14 @@ class view_users(View):
     def del_users(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Users.objects.get(id=id_data)
+            del_data = Users.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/users")
 
     def update_users(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Users.objects.get(id=id_data)
+            update_data = Users.objects.get(id_data)
             update_data.number = request.POST.get("number")
             update_data.login = request.POST.get("login")
             update_data.password = request.POST.get("password")
@@ -360,14 +360,14 @@ class view_employee(View):
     def del_employee(request):
         if request.method == "POST":
             id_data = request.POST.get("delname", "")
-            del_data = Employee.objects.get(id=id_data)
+            del_data = Employee.objects.get(id_data)
             del_data.delete()
             return HttpResponseRedirect("/main/employee")
 
     def update_employee(request):
         if request.method == "POST":
             id_data = request.POST.get("upname", "")
-            update_data = Employee.objects.get(id=id_data)
+            update_data = Employee.objects.get(id_data)
             update_data.personal_number_employee = request.POST.get("personal_number_employee")
             update_data.full_name_employee = request.POST.get("full_name_employee")
             update_data.position_employee = request.POST.get("position_employee")
